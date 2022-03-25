@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="order-image">
+      <img src="../../../assets/logos/mark1.png" alt="Loading...">
+      <h4 class="order-heading">Order Placed Successfully</h4>
+    </div>
+    <div class="message" >
+      <h6>Congratulations!!!your order is confirmed</h6>
+      <h6>the order id  is</h6><h6 *ngFor="let ordr of order.data"> #{{ordr.orderID}}</h6><h6>save the order id for</h6>
+      <h6>further communication.</h6>
+    </div>
+    <div class="table-details">
+      <table>
+        <thead>
+          <th>Email Us</th>
+          <th>Contact Us</th>
+          <th>Address</th>
+        </thead>
+        <tr>
+          <td>abhishekrajawat101@gmail.com</td>
+          <td>+91 9971944613</td>
+          <td>Marvel Collections,Gurugram!</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <!-- <button type="button" (click)="goToDashboard()" >Continue Shopping</button> -->
+    </div>
+    <br>
+    <button  style="margin-left: 155mm;" type="button" (click)="goToDashboard()" >Continue Shopping</button>
+  </div>

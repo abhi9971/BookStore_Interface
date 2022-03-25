@@ -1,0 +1,47 @@
+  <div class="logo-content">
+    <div>
+      <span class="addressBook-text">Books</span>
+      <span class="length" style="margin-top: 10px; color: #a03037; font-size: larger;"><strong>({{books.data.length}})</strong></span>
+    </div>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="this.search" (click)="displayBook()">
+      <!-- <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button> -->
+    </form>
+    <div class="cartLogo" style="display: flex;">
+    <img style="height: 18mm; margin-right: 0px; margin-left: 60px;" src="../../../assets/logos/logo.png " alt="cartlogo" (click)="onClick()" />
+    <!-- <h6>({{carts.data.length}})</h6> -->
+    <span class="length1" style=" color: #a03037; margin-top: 20px; margin-right: 20px;"><strong>({{carts.data.length}})</strong></span>
+
+  </div>
+
+    <div class="column-content"  >
+      <select name="sort" id="sort" (change)="onClickSort()" [(ngModel)]="this.sort"  >
+        <option  value="default" selected> Sort By Relevance </option>
+        <option value="Ascending" >Price:Low to High</option>
+        <option value="Descending" >Price:High to Low</option>
+      </select>
+    </div>
+  
+  </div>
+<div class="book-container">
+  <div style="height: fit-content;" class="card card-container" *ngFor="let book of books.data">
+      <div class="book-image">
+          <img [src]="this.img+this.book.bookImage" class="card-img-top" alt="Book Image" style="height: fit-content;">
+      </div>
+      <div class="card-body">
+      <h5 class="card-title">{{book.bookName}}</h5>
+      <p class="card-text" style="font-weight: lighter; font-size: smaller;">by {{book.authorName}}</p>
+      <p class="card-text"><strong>Price:-{{book.price}}</strong></p>
+      <h6  *ngIf="book.quantity == 0; else logged" style="color: red;"><b>{{sold}}</b></h6>
+      <ng-template #logged>  
+      </ng-template>
+      <div class="button-container">
+      <button *ngIf="book.quantity != 0;" type="button" class="button" (click)="addToCart(book.bookId)" >Add to Bag</button>
+      <button type="button" class="button wishlist">Wishlist</button>
+      </div>
+      </div>
+  </div>
+</div>
+  
+
+

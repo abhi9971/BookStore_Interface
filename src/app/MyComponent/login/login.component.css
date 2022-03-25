@@ -1,0 +1,47 @@
+.card{
+  background-color: #2E1D1E;
+}
+.bgColor{
+  background-color:white;
+}
+.mb{
+  color:#3371B5;
+}
+
+.mb1{
+  color:#707070;
+}
+.loginheader{
+  color:white;
+}
+.text{
+  color:white;
+}
+.textofButton{
+  color:white;
+}
+.forgot{
+  color: #707070;
+}
+.astext {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+  color: #3371B5;
+}
+.form-label{
+  margin-bottom: 5px;
+}
+.form-label1{
+  margin-bottom: 5px;
+}
+.text-decoration-none {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+  color: #3371B5;
+}

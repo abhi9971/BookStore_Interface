@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="card mb-3">
+    <h5 class="cart-heading">My Wishlist({{wishlists.data.length}})</h5>
+    <div class="row g-0" *ngFor="let wishlist of wishlists.data">
+      <div class="col-md-4" >
+        <img [src]="this.img+this.wishlist.book.bookImage"class="img-fluid rounded-start" alt="Loading...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{wishlist.book.bookName}}</h5>
+          <p class="card-text">by {{wishlist.book.authorName}}</p>
+          <p class="card-text">RS.{{wishlist.book.price}}</p>
+          <div class="quantity-change">
+            <a class="remove" (click)="onClickRemove(wishlist.wishlistId)">Remove</a>
+          </div>
+
+          <!-- <div class="quantity-change">
+            <button type="button" class="btn  quantity-button" (click)="decreaseQuantity(this.crt.cartID)" *ngIf="crt.quantity==2">-</button>
+            <input type="text" name="quantity" class="book-quantity" [(ngModel)]="crt.quantity">
+            <button type="button" class="btn  quantity-button" (click)="increaseQuantity(this.crt.cartID)">+</button>
+            <a class="remove" (click)="deleteCart(crt.cartID)">Remove</a>
+          </div> -->
+          <div class="place-order">
+            <button type="button" class="btn placeorder-button" (click)="addToBag(wishlist.book.bookId,wishlist.user.userId,wishlist.wishlistId)" >Move to Cart</button>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    <!-- <div class="place-order" >
+      <button type="button" class="btn placeorder-button" (click)="moveToCart(book.bookId)">Move To Cart</button>
+    </div>   -->
+  </div>

@@ -30,6 +30,8 @@ export class OrdersummeryComponent implements OnInit {
     }
 
     goToOrder(){
+      
+
       this.router.navigate(["order"]);
     }
   }

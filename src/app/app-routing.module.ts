@@ -8,6 +8,7 @@ import { LoginComponent } from './MyComponent/login/login.component';
 import { OrderComponent } from './MyComponent/order/order.component';
 import { OrdersummeryComponent } from './MyComponent/ordersummery/ordersummery.component';
 import { RegisterComponent } from './MyComponent/register/register.component';
+import { WishlistComponent } from './MyComponent/wishlist/wishlist.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"order/:Id",component:OrdersummeryComponent},
   {path:"ordersummery",component:OrdersummeryComponent},
   {path:"order",component:OrderComponent},
+  {path:"wishlist",component:WishlistComponent},
 
 
 

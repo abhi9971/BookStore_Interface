@@ -29,5 +29,9 @@ export class CartService {
   increaseCartQuantity(Id:any){
     return this.http.get("http://localhost:8080/cart/increaseQuantity/"+Id);
   }
+  retrieveCartByBookId(Id:any){
+    return this.http.get("http://localhost:8080/cart/retrieveCartByBookId/"+Id);
+
+  }
  
 }

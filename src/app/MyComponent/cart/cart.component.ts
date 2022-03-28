@@ -26,22 +26,20 @@ export class CartComponent implements OnInit {
   constructor(private router: Router, private bookService: BookserviceService, private orderService: OrderService, private service: CartService, private userService: UserserviceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+ 
     this.service.getAllCartRecords().subscribe(data => {
 
-      console.log("Cart data retrieved", data);
       this.cart = data;
       this.mail = this.cart.data[0].user.email;
       this.userService.getUserRecordByToken(this.mail).subscribe(userData => {
-        console.log("User Data retrieved", userData);
         this.user = userData;
       })
     })
+    
   }
 
   deleteCart(Id: any) {
-    console.log("my cart id", Id);
     this.service.deleteCartRecordById(Id).subscribe(data => {
-      console.log("Cart data deleted");
       window.location.reload();
 
     })
@@ -49,16 +47,17 @@ export class CartComponent implements OnInit {
 
   decreaseQuantity(Id: any) {
     this.service.decreaseCartQuantity(Id).subscribe(data => {
-      console.log("Quantity decreased");
       window.location.reload();
       // this.router.navigate(["cart"]);
-    })
+    });
   }
   increaseQuantity(Id: any) {
     this.service.increaseCartQuantity(Id).subscribe(data => {
-      console.log("Quantity Increased");
       window.location.reload();
-    })
+      // this.router.navigate(["cart"]);
+
+    });
+
   }
 
   placeOrder() {
@@ -72,11 +71,8 @@ export class CartComponent implements OnInit {
       this.order.price = this.cart.data[i].book.price;
       this.order.address = "Shiv colony pinto park";
       this.order.cancel = false;
-      console.log(this.order);
       this.orderService.postOrder(this.order).subscribe((getData: any) => {
-        console.log("Order Placed !", getData);
         this.order = getData;
-        console.log(this.order);
       });
 
         this.service.deleteCartRecordById(this.cart.data[i].cartId).subscribe(data=>{

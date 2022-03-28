@@ -16,7 +16,6 @@ export class CustomerDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUserRecordByToken(this.email).subscribe((getData:any)=>{
-      console.log("Data retrieved for user",getData);
       this.user=getData.data;
     })
 
@@ -24,7 +23,6 @@ export class CustomerDetailsComponent implements OnInit {
 
   updateUser(){
     this.userService.updateUserRecordById(this.user.userId,this.user).subscribe(data=>{
-      console.log("User record got updated",data);
       this.router.navigate(["ordersummery"]);
     })
   }

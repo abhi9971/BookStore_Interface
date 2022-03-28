@@ -27,19 +27,15 @@ export class LoginComponent implements OnInit {
         window.alert("Login Successully");
 
         this.router.navigate(["home"]);
-       // console.log("login sucussfull");
       }
       else if(this.message==0){
         window.alert("inavlid email");
-        console.log("invalid user email");
       }   
       else if(this.message==2){
         window.alert("inavlid password");
 
-        console.log("invalid user password");        
       } 
     
-   // this.router.navigate(["login"]);
   }
 
   onClickRedirectToRegister(){
@@ -47,9 +43,7 @@ export class LoginComponent implements OnInit {
   }
 
   onGoToHome(){
-    console.log(this.password,this.email);
     this.service.loginUser(this.email,this.password).subscribe(data => {
-      console.log("User Login Sucessfully"); 
     });
     this.router.navigate(["home"]);
   }

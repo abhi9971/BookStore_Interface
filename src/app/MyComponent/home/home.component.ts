@@ -34,24 +34,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.sort="default";
     if(this.sort==""){
-      // console.log(this.sort);
     
     this.service.getAllBooks().subscribe(sdata=>{
-      console.log("books details are")
-      console.log(sdata);
-      console.log("thank you")
       this.books=sdata;
     }); 
   }
   else{
-    console.log(this.sort);
 this.onClickSort();
 
   }
     this.cartService.getAllCartRecords().subscribe(data=>{
-      console.log("Cart data retrieved",data);
       this.carts = data;
-      console.log("the cart is :",this.carts);
     });
 
     this.wishlistService.getAllWishlistRecords().subscribe(data=>{
@@ -65,9 +58,7 @@ this.onClickSort();
       this.cart.bookId=Id;
       this.cart.userId=1;
       this.cart.quantity=1;
-      console.log(this.cart);
       this.cartService.postCart(this.cart).subscribe((getData:any) =>{
-        console.log("Cart Added successfully !");
         this.cart=getData.data;
         // window.location.reload();
       });
@@ -75,20 +66,17 @@ this.onClickSort();
   else{
     this.cartService.retrieveCartByBookId(Id).subscribe(data=>{
       this.tempProduct=data;
-      console.log(this.tempProduct.data);
       if(this.tempProduct.data==null){
         this.cart.bookId=Id;
         this.cart.userId=1;
         this.cart.quantity=1;
         console.log(this.cart);
         this.cartService.postCart(this.cart).subscribe((getData:any) =>{
-          console.log("Cart Added !");
           this.cart=getData.data;
-          //window.location.reload();
         });
       }
       else{
-        alert("Book Already added...Please check cart !!!");
+        alert("Item Already In Cart...Please Check Your Cart !!!");
       }
       window.location.reload();
     });
@@ -105,22 +93,17 @@ this.onClickSort();
     console.log(this.sort);
     if(this.sort=="Ascending"){
       this.service.sortBookInAscending().subscribe(data=>{
-        console.log("Data sorted in ascending",data);
         this.books=data;
-        console.log("the all books are ",this.books);
       });
     }
     
    if(this.sort=="Descending"){
       this.service.sortBookInDescending().subscribe(data=>{
-        console.log("Data sorted in descending",data);
         this.books=data;
-        console.log(this.books);
       });
     }
     if(this.sort=="default"){
       this.service.getAllBooks().subscribe(data=>{
-        console.log("Data sorted in descending",data);
         this.books=data;
         console.log(this.books);
       });
@@ -131,11 +114,8 @@ this.onClickSort();
     if(this.search!=""){
 
    
-    console.log(this.search);
     this.service.searchBookByName(this.search).subscribe((getData:any)=>{
-      console.log("Book record retrieved by applying search method");
       this.books=getData;
-      console.log(this.books);
     });}
     else{
       this.ngOnInit();
@@ -151,13 +131,11 @@ this.onClickSort();
     this.router.navigate(["wishlist"]);
   }
   addToWishList(bookId:number){
-    console.log("add to cart is executed ");
     let i = 0
     if (this.wishlist.data!=0) {
       for (; i < this.carts.data.length; i++) {
         console.log("the book id is ", this.wishlist.data[i].book.bookId)
         if (this.wishlist.data[i].book.bookId == bookId) {
-          console.log("the book is already present ");
           alert("book is already in WISHLIST");
           break;
         }

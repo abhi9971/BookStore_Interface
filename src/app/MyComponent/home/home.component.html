@@ -4,17 +4,17 @@
       <span class="length" style="margin-top: 10px; color: #a03037; font-size: larger;" *ngIf="books.data.length>=1"><strong>({{books.data.length}})</strong></span>
     </div>
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="this.search" (click)="displayBook()">
+      <input class="form-control mr-sm-2" type="text" style="margin-right: 20px;" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="this.search" (click)="displayBook()">
       <!-- <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button> -->
     </form>
     <div class="cartLogo" style="display: flex;">
-    <img style="height: 18mm;  margin-left: 10mm;" src="../../../assets/logos/logo.png " alt="cartlogo" (click)="onClick()" />
+    <img style="height: 18mm; margin-right: 0px; margin-left: 50mm;" src="../../../assets/logos/logo.png " alt="cartlogo" (click)="onClick()" />
     <!-- <h6>({{carts.data.length}})</h6> -->
-    <span class="length1" style=" color: #a03037; margin-top: 20px; " *ngIf="carts.data.length>=1"><strong>({{carts.data.length}})</strong></span>
+    <span class="length1" style=" color: #a03037; margin-top: 20px;" *ngIf="carts.data.length>=1"><strong>({{carts.data.length}})</strong></span>
 
-    <img style="height: 18mm; margin-right: 0px;" src="../../../assets/124037792-wunschlistensymbolvektor-aus-der-registerkartenleiste-und-der-einstellungssammlung-dünne-linie-wunsc.webp " alt="wishlistlogo" (click)="onClickWishlist()" />
+    <img style="height: 18mm; margin-right: 0px; margin-left: 0px;" src="../../../assets/124037792-wunschlistensymbolvektor-aus-der-registerkartenleiste-und-der-einstellungssammlung-dünne-linie-wunsc.webp " alt="wishlistlogo" (click)="onClickWishlist()" />
     <!-- <h6>({{carts.data.length}})</h6> -->
-    <span class="length2" style=" color: #a03037; margin-top: 20px; margin-right: 20px;" *ngIf="wishlist.data.length>=1"><strong>({{wishlist.data.length}})</strong></span>
+    <span class="length1" style=" color: #a03037; margin-top: 20px; margin-right: 5mm; " *ngIf="wishlist.data.length>=1"><strong>({{wishlist.data.length}})</strong></span>
 
   </div>
   

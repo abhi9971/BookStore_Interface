@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
   onClickRedirectToLogin(){
     console.log(this.user);
     this.service.registerUser(this.user).subscribe(data => {
-      console.log("Data Added Sucessfully"); 
     });
     this.router.navigate(["login"]);
   }

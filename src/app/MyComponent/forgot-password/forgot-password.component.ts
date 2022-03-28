@@ -16,8 +16,6 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
   onlogin(){
-    console.log("this is my password");
-    console.log(this.password);
     this.service.changePassword(this.email,this.password).subscribe(data => {
       console.log("Password Updated Sucessfully"); 
     });

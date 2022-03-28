@@ -19,24 +19,16 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllOrders().subscribe(data=>{
-      console.log("Orders retrieved successfully",data);
       this.order=data;
       this.email=this.order.data[0].user.email;
       console.log(this.email);
       this.userService.getUserRecordByToken(this.email).subscribe((getData:any)=>{
-        console.log("Token retrieved successfully");
         this.email=getData.data;
       })
     })
   }
   goToDashboard(){
-  //   for(let i=0;i<this.order.data.length;i++){
-  //   this.service.deleteOrderRecordById(this.order.data[i].orderID).subscribe(data=>{
-  //     console.log(data);
-      
-  //     // this.router.navigate(['dashboard',this.token]);
-  //   });
-  // }
+ 
     this.router.navigate(["home"]);
 
   }

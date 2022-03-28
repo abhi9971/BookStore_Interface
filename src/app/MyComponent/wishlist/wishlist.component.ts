@@ -22,13 +22,11 @@ export class WishlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.wishlistService.getAllWishlistRecords().subscribe(data=>{
-      console.log(data)
       this.wishlists=data;
     });
   }
  onClickRemove(Id:any){
    this.wishlistService.deleteWishlistRecordById(Id).subscribe(data=>{
-     console.log("Data deleted");
      window.location.reload();
    })
  }
@@ -36,11 +34,9 @@ export class WishlistComponent implements OnInit {
  addToBag(bookId:number,userId:number,wishlist:number){
   this.mycart.bookId=bookId;
   this.mycart.userId=userId;
-  console.log("my data is going to save")
   this.cartService.postCart(this.mycart).subscribe(data=>{
     this.cart=data;
 
-    console.log("data is saved to cart",data);
 
   });
   this.onClickRemove(wishlist);

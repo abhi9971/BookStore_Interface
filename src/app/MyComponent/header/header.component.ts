@@ -16,4 +16,8 @@ export class HeaderComponent implements OnInit {
   onClick(){
     this.router.navigate(["login"]);
   }
+  goToHomeComponent(){
+    this.router.navigate(["home"]);
+
+  }
 }

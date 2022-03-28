@@ -270,7 +270,13 @@ margin-top:10px;
 }
 
 
-
+img[_ngcontent-klr-c51] {
+  color: black;
+  background-color: #A03037;
+  /* margin-left: 52mm; */
+  margin-right: 10mm;
+  height: 8mm;
+}
 
 
 

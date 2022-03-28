@@ -20,11 +20,9 @@ export class OrdersummeryComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderService.getAllOrders().subscribe(getData=>{
-      console.log("order Data Retrieved successfully",getData);
       this.order=getData;
    });
     this.bookService.getBookById(this.order.data[0].book.bookId).subscribe(data=>{
-      console.log("Book data retrieved",data);
       this.book = data;
     })
     }

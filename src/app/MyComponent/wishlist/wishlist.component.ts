@@ -21,9 +21,17 @@ export class WishlistComponent implements OnInit {
   constructor(private bookService:BookserviceService,private userService:UserserviceService,private cartService:CartService,private route:ActivatedRoute,private router:Router,private wishlistService:WishlistServiceService) { }
 
   ngOnInit(): void {
-    this.wishlistService.getAllWishlistRecords().subscribe(data=>{
+    this.wishlistService.getAllWishlistRecords().subscribe((data:any)=>{
+     
+      console.log(data.length==0);
+      if(data.data.length==0){
+        this.router.navigate(["home"]);
+      }
       this.wishlists=data;
+
+      
     });
+    
   }
  onClickRemove(Id:any){
    this.wishlistService.deleteWishlistRecordById(Id).subscribe(data=>{

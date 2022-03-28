@@ -27,9 +27,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
  
-    this.service.getAllCartRecords().subscribe(data => {
-
+    this.service.getAllCartRecords().subscribe((data:any) => {
       this.cart = data;
+      if(data.data.length==undefined){
+        this.router.navigate(["home"]);
+      }
       this.mail = this.cart.data[0].user.email;
       this.userService.getUserRecordByToken(this.mail).subscribe(userData => {
         this.user = userData;
@@ -54,12 +56,27 @@ export class CartComponent implements OnInit {
   increaseQuantity(Id: any) {
     this.service.increaseCartQuantity(Id).subscribe(data => {
       window.location.reload();
-      // this.router.navigate(["cart"]);
+    });       
 
-    });
+
 
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   placeOrder() {
     
     for (let i = 0; i < this.cart.data.length; i++) {

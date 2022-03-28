@@ -37,11 +37,11 @@
       <h5 class="card-title">{{book.bookName}}</h5>
       <p class="card-text" style="font-weight: lighter; font-size: smaller;">by {{book.authorName}}</p>
       <p class="card-text"><strong>Price:-{{book.price}}</strong></p>
-      <h6  *ngIf="book.quantity == 0; else logged" style="color: red;"><b>{{sold}}</b></h6>
+      <h6  *ngIf="book.quantity == 0; else logged" style="color: #a03037"><b>{{sold}}</b></h6>
       <ng-template #logged>  
       </ng-template>
       <div class="button-container">
-      <button *ngIf="book.quantity != null;" type="button" class="button" (click)="addToCart(book.bookId)" >Add to Bag</button>
+      <button *ngIf="book.quantity != 0;" type="button" class="button" (click)="addToCart(book.bookId)" >Add to Bag</button>
       <button type="button" class="button wishlist" (click)="addToWishList(book.bookId)">Wishlist</button>
       </div>
       </div>

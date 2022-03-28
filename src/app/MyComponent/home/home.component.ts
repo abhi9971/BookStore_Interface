@@ -70,7 +70,6 @@ this.onClickSort();
         this.cart.bookId=Id;
         this.cart.userId=1;
         this.cart.quantity=1;
-        console.log(this.cart);
         this.cartService.postCart(this.cart).subscribe((getData:any) =>{
           this.cart=getData.data;
         });
@@ -90,7 +89,6 @@ this.onClickSort();
   }
 
   onClickSort(){
-    console.log(this.sort);
     if(this.sort=="Ascending"){
       this.service.sortBookInAscending().subscribe(data=>{
         this.books=data;
@@ -105,7 +103,6 @@ this.onClickSort();
     if(this.sort=="default"){
       this.service.getAllBooks().subscribe(data=>{
         this.books=data;
-        console.log(this.books);
       });
     }
   }
@@ -123,6 +120,7 @@ this.onClickSort();
   }
 
   onClickWishlist(){
+    console.log("Going to wishlist");
     this.router.navigate(["wishlist"]);
   }
 
@@ -131,6 +129,35 @@ this.onClickSort();
     this.router.navigate(["wishlist"]);
   }
   addToWishList(bookId:number){
+    // console.log(this.wishlist.data!=0);
+    // let i = 0
+    // if (this.wishlist.data!=0) {
+    //   for (; i < this.wishlist.data.length; i++) {
+    //     if (this.wishlist.data[i].book.bookId == bookId) {
+    //       alert("book is already in WISHLIST");
+    //       break;
+    //     }
+    //   }
+    //   console.log(i);
+    //   if (i == this.wishlist.data.length || this.wishlist.data == "") {
+    //     this.myWishlist.bookId = bookId;
+    //     this.myWishlist.userId = 1;//this.userData.data.userId; 
+    //     this.myWishlist.quantity = 1;
+    //     this.wishlistService.insertWishList(this.myWishlist).subscribe((getdata: any) => {
+    //       this.carts = getdata;
+    //       window.location.reload();
+    //     });
+    //   }
+    // }else{
+    //   this.myWishlist.bookId = bookId;
+    //   this.myWishlist.userId = 1;//this.userData.data.userId; 
+    //   this.myWishlist.quantity = 1;
+    //   this.wishlistService.insertWishList(this.myWishlist).subscribe((getdata: any) => {
+    //     this.wishlist = getdata;
+    //     window.location.reload();
+    //   });
+    // }
+    console.log("add to cart is executed ");
     let i = 0
     if (this.wishlist.data!=0) {
       for (; i < this.carts.data.length; i++) {
@@ -157,6 +184,5 @@ this.onClickSort();
         this.wishlist = getdata;
         window.location.reload();
       });
-    }
 
-  }}
+  }}}
